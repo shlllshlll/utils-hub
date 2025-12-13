@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    // 1. 基础编译设置
+    "target": "ES2020",        // Node 14+ 都支持，支持 async/await
+    "module": "CommonJS",      // 🌟 重点：生成 require()，兼容性最好，也就是你的报错解决点
+    "moduleResolution": "node",// 经典的节点解析策略，不需要写 .js 后缀
+
+    // 2. 路径与输出 (配合 Workspace 必须设置)
+    "declaration": true,       // 生成 .d.ts，让 cli 包能识别 core 包的类型
+    "declarationMap": true,    // 允许从 cli 跳转定义到 core 的源码
+    "sourceMap": true,         // 允许调试
+
+    // 3. 严格类型检查 (保留你原有的优秀习惯)
+    "strict": true,
+    "noUncheckedIndexedAccess": true, // 强烈建议保留，防止数组越界访问
+
+    // 4. 兼容性设置 (关键)
+    "esModuleInterop": true,   // 🌟 允许 import React from 'react' 这种非标准写法
+    "skipLibCheck": true,      // 忽略依赖库里的类型错误，节省编译时间
+    "forceConsistentCasingInFileNames": true,
+
+    // 5. 关掉那些导致报错的严格选项
+    // "verbatimModuleSyntax": false, // 默认就是 false，不用写
+    // "isolatedModules": false
+  }
+}

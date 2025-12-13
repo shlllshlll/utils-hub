@@ -1,0 +1,7 @@
+{
+  "extends": "./tsconfig.json", // 继承主配置
+  "compilerOptions": {
+    "paths": {}, // ⭐ 关键：构建时清空路径映射，强制它去 node_modules 找依赖
+    "baseUrl": "."
+  }
+}

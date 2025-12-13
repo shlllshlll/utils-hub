@@ -1,0 +1,18 @@
+{
+  "name": "@notion-md-importer/core",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@notionhq/client": "^5.4.0",
+    "@tryfabric/martian": "^1.2.4",
+    "dotenv": "^17.2.3"
+  }
+}

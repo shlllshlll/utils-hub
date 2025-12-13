@@ -1,0 +1,26 @@
+{
+  "name": "@notion-md-importer/cli",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json"
+  },
+  "bin": {
+    "notion-md-import": "./dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "@notion-md-importer/core": "^1.0.0",
+    "@notionhq/client": "^5.4.0",
+    "@tryfabric/martian": "^1.2.4",
+    "commander": "^14.0.2",
+    "dotenv": "^17.2.3"
+  }
+}
