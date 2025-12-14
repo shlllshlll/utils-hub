@@ -2,7 +2,6 @@
   "extends": "../tsconfig.json", // 继承根配置
   "compilerOptions": {
     "outDir": "./dist",     // 输出到 packages/core/dist
-    "rootDir": "./src",     // 源码在 packages/core/src
     "baseUrl": ".",
     "paths": {
       // 告诉编译器：遇到这个包名，直接去读源码 TS 文件

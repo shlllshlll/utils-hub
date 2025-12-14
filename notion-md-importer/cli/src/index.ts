@@ -8,17 +8,20 @@
  * @brief
  */
 
-import { Command } from "commander";
+import { Command, Option } from "commander";
 import fs from "fs";
 import path from "path";
-import { importMarkdown } from "@notion-md-importer/core";
+import { importMarkdown } from "@shlllhub/notion-md-importer-core";
 import dotenv from "dotenv";
+import { findUpSync } from 'find-up';
 
-dotenv.config();
-const API_KEY = process.env.NOTION_API_KEY;
-if (!API_KEY) {
-    throw new Error("请在 .env 文件中设置 NOTION_API_KEY");
+const envPath = findUpSync('.env');
+if (envPath) {
+    dotenv.config({ path: envPath });
+} else {
+    console.log("Not .env file found, using default environment variables");
 }
+
 const program = new Command();
 
 program
@@ -29,7 +32,16 @@ program
 program
     .command("import")
     .argument("<filePath>", "markdown file path")
-    .requiredOption("-p, --page <pageId>", "Parent Page ID in Notion")
+    .addOption(
+        new Option("-p, --page <pageId>", "Parent Page ID in Notion")
+            .env("NOTION_PAGE_ID")
+            .makeOptionMandatory()
+    )
+    .addOption(
+        new Option("-k, --api-key <apiKey>", "Notion API Key")
+            .env("NOTION_API_KEY")
+            .makeOptionMandatory()
+    )
     .action(async (filePath: string, options: { page: string }) => {
         try {
             const absolutePath = path.resolve(process.cwd(), filePath);
