@@ -1,8 +1,10 @@
 {
   "extends": "../tsconfig.json", // 继承根配置
   "compilerOptions": {
-    "outDir": "./dist",     // 输出到 packages/core/dist
-    "rootDir": "./src"      // 源码在 packages/core/src
+     // 使用 ESM 输出，和 package.json 的 type: module 保持一致
+     "module": "ES2020",
+     "outDir": "./dist",     // 输出到 packages/core/dist
+     "rootDir": "./src"      // 源码在 packages/core/src
   },
   "include": ["src/**/*"],  // 只处理 src 下的文件
   "exclude": ["node_modules", "**/*.test.ts"] // 排除测试文件

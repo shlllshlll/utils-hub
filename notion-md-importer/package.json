@@ -23,7 +23,8 @@
   },
   "workspaces": [
     "core",
-    "cli"
+    "cli",
+    "apps/web"
   ],
   "scripts": {
     "build": "npm run build --workspaces",
