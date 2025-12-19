@@ -10,7 +10,7 @@
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
     "dev": "tsx src/index.ts",
-    "cli": "npm run build && node dist/index.js"
+    "cli": "pnpm build && node dist/index.js"
   },
   "bin": {
     "notion-md-import": "./dist/index.js"
@@ -23,7 +23,7 @@
     "registry": "https://registry.npmjs.org/"
   },
   "dependencies": {
-    "@shlllhub/notion-md-importer-core": "^1.0.0",
+    "@shlllhub/notion-md-importer-core": "workspace:*",
     "@notionhq/client": "^5.4.0",
     "@tryfabric/martian": "^1.2.4",
     "commander": "^14.0.2",

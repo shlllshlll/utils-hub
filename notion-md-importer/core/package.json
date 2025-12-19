@@ -10,7 +10,8 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.js"
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
     }
   },
   "files": [
@@ -23,7 +24,8 @@
     "registry": "https://registry.npmjs.org/"
   },
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "dev": "tsc --watch --preserveWatchOutput"
   },
   "dependencies": {
     "@notionhq/client": "^5.4.0",
